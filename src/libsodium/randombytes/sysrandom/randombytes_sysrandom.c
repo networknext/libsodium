@@ -187,7 +187,7 @@ randombytes_sysrandom_random_dev_open(void)
                 S_ISCHR(st.st_mode)
 # endif
                ) {
-# if defined(F_SETFD) && defined(FD_CLOEXEC)
+# if defined(F_SETFD) && defined(FD_CLOEXEC) && !defined(NN_NINTENDO_SDK)
                 (void) fcntl(fd, F_SETFD, fcntl(fd, F_GETFD) | FD_CLOEXEC);
 # endif
                 return fd;
